@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coré-dex</title>
+  <link rel="icon" type="image/png" href="icone.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Coré-dex</h1>
+    <p class="subtitle">Suivi de progression My Singing Monsters</p>
+    <div class="actions">
+      <button id="export-btn" title="Télécharger ta progression en JSON">Exporter</button>
+      <button id="import-btn" title="Charger un fichier de progression JSON">Importer</button>
+      <input type="file" id="import-input" accept="application/json" hidden />
+    </div>
+  </header>
+
+  <main id="islands-container" class="islands-container">
+    <p class="loading">Chargement des îles…</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

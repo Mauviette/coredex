@@ -1,0 +1,193 @@
+:root {
+  --bg: #11151c;
+  --panel: #1a2029;
+  --panel-alt: #212938;
+  --border: #2d3748;
+  --text: #e7ecf3;
+  --text-dim: #8a94a6;
+  --accent: #5b8cff;
+
+  --todo-border: #39414f;
+  --todo-bg: #1a2029;
+  --doing-border: #e0a233;
+  --doing-bg: #3a2f14;
+  --done-border: #3fcf6f;
+  --done-bg: #123320;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.topbar {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+  flex-wrap: wrap;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actions button {
+  background: var(--panel-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.islands-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: calc(100vh - 68px);
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.loading {
+  margin: 2rem;
+  color: var(--text-dim);
+}
+
+.island-section {
+  flex: 0 0 min(92vw, 1100px);
+  scroll-snap-align: start;
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+}
+
+.island-left {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.island-left img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  object-fit: contain;
+}
+
+.island-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.island-progress {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.island-right {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.6rem;
+  align-content: start;
+}
+
+.objective-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 2px solid var(--todo-border);
+  background: var(--todo-bg);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s, transform 0.1s;
+  position: relative;
+}
+
+.objective-card:hover {
+  transform: translateY(-2px);
+}
+
+.objective-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.objective-name {
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.objective-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 0.65rem;
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.35);
+}
+
+.objective-card.doing {
+  border-color: var(--doing-border);
+  background: var(--doing-bg);
+}
+
+.objective-card.done {
+  border-color: var(--done-border);
+  background: var(--done-bg);
+}
+
+.objective-card.special .objective-name::after {
+  content: " ★";
+  color: var(--accent);
+}
