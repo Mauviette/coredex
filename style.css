@@ -1,18 +1,17 @@
 :root {
-  --bg: #11151c;
-  --panel: #1a2029;
-  --panel-alt: #212938;
-  --border: #2d3748;
-  --text: #e7ecf3;
-  --text-dim: #8a94a6;
-  --accent: #5b8cff;
+  --bg: #faf3e3;
+  --panel: #fffdf6;
+  --border: #e6dcc4;
+  --text: #3a3327;
+  --text-dim: #8c8065;
+  --accent: #c98a3b;
 
-  --todo-border: #39414f;
-  --todo-bg: #1a2029;
+  --todo-border: #e6dcc4;
+  --todo-bg: #fffdf6;
   --doing-border: #e0a233;
-  --doing-bg: #3a2f14;
-  --done-border: #3fcf6f;
-  --done-bg: #123320;
+  --doing-bg: #fcefd2;
+  --done-border: #5a9e5f;
+  --done-bg: #e7f3e3;
 }
 
 * {
@@ -24,29 +23,36 @@ html, body {
   padding: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family: "Baloo 2", system-ui, -apple-system, sans-serif;
   height: 100%;
   overflow-x: hidden;
 }
 
 .topbar {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 1rem;
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--border);
   background: var(--panel);
+  border-bottom: 1px solid var(--border);
   flex-wrap: wrap;
 }
 
+.topbar .logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 6px;
+  align-self: flex-start;
+}
+
 .topbar h1 {
-  margin: 0;
+  margin: -0.4rem 0 0;
   font-size: 1.4rem;
-  letter-spacing: 0.02em;
 }
 
 .subtitle {
-  margin: 0;
+  margin: -0.4rem 0 0;
   color: var(--text-dim);
   font-size: 0.9rem;
   flex: 1;
@@ -54,32 +60,33 @@ html, body {
 
 .actions {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
+  margin-top: -0.4rem;
+}
+
+.sync-status {
+  font-size: 0.75rem;
+  color: var(--text-dim);
 }
 
 .actions button {
-  background: var(--panel-alt);
+  background: var(--panel);
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 0.4rem 0.8rem;
   font-size: 0.85rem;
+  font-family: inherit;
   cursor: pointer;
-}
-
-.actions button:hover {
-  border-color: var(--accent);
-  color: var(--accent);
 }
 
 .islands-container {
   display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  overflow-y: hidden;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
   height: calc(100vh - 68px);
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
 }
 
 .loading {
@@ -88,93 +95,125 @@ html, body {
 }
 
 .island-section {
-  flex: 0 0 min(92vw, 1100px);
-  scroll-snap-align: start;
+  width: 100%;
+  flex: 0 0 auto;
   display: flex;
-  gap: 1.25rem;
-  padding: 1.25rem;
-  border-right: 1px solid var(--border);
-  overflow-y: auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.island-section:first-child {
+  border-top: 1px solid var(--border);
 }
 
 .island-left {
-  flex: 0 0 220px;
+  flex: 0 0 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
-  color: inherit;
 }
 
-.island-left img {
+.order-arrow {
+  display: block;
   width: 100%;
-  max-width: 220px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--panel);
-  object-fit: contain;
-}
-
-.island-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.island-progress {
-  font-size: 0.85rem;
+  max-width: 160px;
+  height: 14px;
+  line-height: 14px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
   color: var(--text-dim);
+  font-size: 0.6rem;
+  cursor: pointer;
+}
+
+.order-arrow:hover:not(:disabled) {
+  color: var(--accent);
+}
+
+.order-arrow:disabled {
+  visibility: hidden;
+}
+
+.island-image-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.island-image-link img {
+  width: 100%;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
 }
 
 .island-right {
   flex: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  gap: 0.6rem;
-  align-content: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-content: center;
+}
+
+.island-notes {
+  flex: 0 0 200px;
+  align-self: stretch;
+  max-height: 90px;
+  resize: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 0.5rem;
+}
+
+.island-notes:focus {
+  outline: none;
+  border-color: var(--accent);
 }
 
 .objective-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.5rem;
-  border-radius: 8px;
-  border: 2px solid var(--todo-border);
-  background: var(--todo-bg);
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  transition: border-color 0.15s, background-color 0.15s, transform 0.1s;
   position: relative;
-}
-
-.objective-card:hover {
-  transform: translateY(-2px);
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  border: 1px solid var(--todo-border);
+  background: var(--todo-bg);
+  cursor: pointer;
+  flex: 0 0 auto;
 }
 
 .objective-card img {
-  width: 64px;
-  height: 64px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+.objective-extra {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  width: 18px !important;
+  height: 18px !important;
   object-fit: contain;
 }
 
-.objective-name {
-  font-size: 0.75rem;
-  text-align: center;
-  line-height: 1.1;
-}
-
-.objective-badge {
+.status-icon {
   position: absolute;
-  top: 4px;
-  right: 4px;
-  font-size: 0.65rem;
-  padding: 0.05rem 0.3rem;
-  border-radius: 4px;
-  background: rgba(0,0,0,0.35);
+  bottom: 2px;
+  right: 2px;
+  width: 16px !important;
+  height: 16px !important;
+  object-fit: contain;
 }
 
 .objective-card.doing {
@@ -185,9 +224,4 @@ html, body {
 .objective-card.done {
   border-color: var(--done-border);
   background: var(--done-bg);
-}
-
-.objective-card.special .objective-name::after {
-  content: " ★";
-  color: var(--accent);
 }

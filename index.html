@@ -5,13 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coré-dex</title>
   <link rel="icon" type="image/png" href="icone.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="topbar">
+    <img src="icone.png" alt="" class="logo" />
     <h1>Coré-dex</h1>
-    <p class="subtitle">Suivi de progression My Singing Monsters</p>
+    <p class="subtitle">miaou</p>
     <div class="actions">
+      <span id="sync-status" class="sync-status"></span>
       <button id="export-btn" title="Télécharger ta progression en JSON">Exporter</button>
       <button id="import-btn" title="Charger un fichier de progression JSON">Importer</button>
       <input type="file" id="import-input" accept="application/json" hidden />
