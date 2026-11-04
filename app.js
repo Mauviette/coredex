@@ -130,11 +130,8 @@ function renderIsland(island, position, total) {
   right.className = "island-right";
 
   island.objectives.forEach((obj) => {
-    const card = document.createElement("a");
+    const card = document.createElement("div");
     card.className = "objective-card";
-    card.href = obj.link || "#";
-    card.target = "_blank";
-    card.rel = "noopener";
     card.dataset.islandId = island.id;
     card.dataset.objectiveId = obj.id;
     card.title = obj.name;
@@ -145,12 +142,18 @@ function renderIsland(island, position, total) {
     const extra = obj.additional_img
       ? `<img class="objective-extra" src="${obj.additional_img}" alt="" />`
       : "";
-    card.innerHTML = `<img src="${obj.image}" alt="${obj.name}" loading="lazy" />${extra}`;
+    const info = obj.link
+      ? `<a class="info-icon" href="${obj.link}" target="_blank" rel="noopener" title="Voir la fiche">i</a>`
+      : "";
+    card.innerHTML = `<img src="${obj.image}" alt="${obj.name}" loading="lazy" />${extra}${info}`;
     updateStatusIcon(card, status);
 
-    card.addEventListener("click", (e) => {
-      if (e.shiftKey) return; // laisse le navigateur ouvrir le lien
-      e.preventDefault();
+    const infoIcon = card.querySelector(".info-icon");
+    if (infoIcon) {
+      infoIcon.addEventListener("click", (e) => e.stopPropagation());
+    }
+
+    card.addEventListener("click", () => {
       const next = nextState(getStatus(island.id, obj.id));
       setStatus(island.id, obj.id, next);
       persist();
