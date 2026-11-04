@@ -105,9 +105,23 @@
       { "id": "naturels", "name": "Naturels", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/2/29/Book_of_Monsters_Icon.png/revision/latest/scale-to-width-down/200?cb=20231006041551", "link": "https://mysingingmonsters.fandom.com/wiki/Fire_Haven", "type": "common" },
       { "id": "mythique", "name": "Mythique", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/0/06/Buzzinga_Portrait.png/revision/latest/scale-to-width-down/60?cb=20250112045314", "link": "https://mysingingmonsters.fandom.com/wiki/Buzzinga", "type": "special" },
       { "id": "saisonnier", "name": "Saisonnier", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/6/61/Gobbleygourd_Portrait.png/revision/latest/scale-to-width-down/60?cb=20191120162618", "link": "https://mysingingmonsters.fandom.com/wiki/Gobbleygourd", "type": "special" },
-      { "id": "werdo", "name": "Tawkerr", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/a/a5/Charrkoll_Portrait.png/revision/latest/scale-to-width-down/60?cb=20260115175225", "link": "https://mysingingmonsters.fandom.com/wiki/Charrkoll", "type": "special" },
+      { "id": "werdo", "name": "Charrkoll", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/a/a5/Charrkoll_Portrait.png/revision/latest/scale-to-width-down/60?cb=20260115175225", "link": "https://mysingingmonsters.fandom.com/wiki/Charrkoll", "type": "special" },
       { "id": "wubbox", "name": "Wubbox", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/b/ba/Wubbox_Portrait.png", "link": "https://mysingingmonsters.fandom.com/wiki/Wubbox", "type": "special" },
       { "id": "mythique", "name": "Mythique", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/0/06/Buzzinga_Portrait.png/revision/latest/scale-to-width-down/60?cb=20250112045314", "link": "https://mysingingmonsters.fandom.com/wiki/Buzzinga", "type": "special", "additional_img": "https://static.wikia.nocookie.net/mysingingmonsters/images/d/db/Teleport_Button.png/revision/latest?cb=20250531191004"  }
+    ]
+  },
+  {
+    "id": "fire-oasis",
+    "name": "Fire Oasis",
+    "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/1/19/Fire_Oasis_Icon.png/revision/latest/scale-to-width-down/268?cb=20260527021359",
+    "link": "https://mysingingmonsters.fandom.com/wiki/Fire_Oasis",
+    "objectives": [
+      { "id": "naturels", "name": "Naturels", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/2/29/Book_of_Monsters_Icon.png/revision/latest/scale-to-width-down/200?cb=20231006041551", "link": "https://mysingingmonsters.fandom.com/wiki/Fire_Oasis", "type": "common" },
+      { "id": "mythique", "name": "Mythique", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/b/b3/Cherubble_Portrait.png/revision/latest/scale-to-width-down/60?cb=20250112044443", "link": "https://mysingingmonsters.fandom.com/wiki/Cherubble", "type": "special" },
+      { "id": "saisonnier", "name": "Saisonnier", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/6/61/Gobbleygourd_Portrait.png/revision/latest/scale-to-width-down/60?cb=20191120162618", "link": "https://mysingingmonsters.fandom.com/wiki/Gobbleygourd", "type": "special" },
+      { "id": "saisonnier", "name": "Saisonnier", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/f/f8/Spurrit_Portrait.png/revision/latest/scale-to-width-down/60?cb=20220525161547", "link": "https://mysingingmonsters.fandom.com/wiki/Spurrit", "type": "special" },
+      { "id": "wubbox", "name": "Wubbox", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/b/ba/Wubbox_Portrait.png", "link": "https://mysingingmonsters.fandom.com/wiki/Wubbox", "type": "special" },
+      { "id": "mythique", "name": "Mythique", "image": "https://static.wikia.nocookie.net/mysingingmonsters/images/b/b3/Cherubble_Portrait.png/revision/latest/scale-to-width-down/60?cb=20250112044443", "link": "https://mysingingmonsters.fandom.com/wiki/Cherubble", "type": "special", "additional_img": "https://static.wikia.nocookie.net/mysingingmonsters/images/d/db/Teleport_Button.png/revision/latest?cb=20250531191004"  }
     ]
   }
 ]
